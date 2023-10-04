@@ -3,7 +3,7 @@ print(os.getcwd())
 def parse_header(dataLine):
     return dataLine.split(';')
 def parse_data(dataLine):
-    value = [float(item) if item != '\n' else 0.0 for item in dataLine.split(';')]
+    value = [float(item) if item != '' else 0.0 for item in dataLine.split(';')]
     return value
 def makeDict(header,floatData):
     result = {}
@@ -17,7 +17,7 @@ def read_csv(path):
         header = parse_header(data[0].strip())
         dictList = []
         for line in data[1:]:
-            floatData = parse_data(line)
+            floatData = parse_data(line.strip())
             dictData = makeDict(header, floatData)
             dictList.append(dictData)
         return dictList
