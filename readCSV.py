@@ -22,5 +22,7 @@ def read_csv(path):
             dictList.append(dictData)
         return dictList
 
-print(read_csv("username.csv"))
+
+
+readData = read_csv("input.csv")
 
